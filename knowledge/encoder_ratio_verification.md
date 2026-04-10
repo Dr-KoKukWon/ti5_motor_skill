@@ -103,6 +103,26 @@ Motor Controls V1.1.6 스크린샷 6장 (2026-04-10):
 
 move_5deg.py 결과: 5° 명령 → 3,640 counts → 물리 5.00° (각도기 실측, 오차 0.01°)
 
+## CAN 통신 전용 검증 (Motor Controls 불필요)
+
+Out position은 CAN 레지스터가 아닌 Motor Controls UI 내부 계산값이므로,
+CAN 통신만으로는 Out/Pos 비율을 직접 측정할 수 없다.
+
+대신 **Position register 스케일(262,144 cnt/rev) 자체를 검증**:
+
+1. cmd 8로 Position(cnt) 읽기
+2. 262,144 기준으로 알려진 각도(5°) 오프셋 계산: `int(5 / 360.0 * 262144) = 3640`
+3. cmd 30으로 목표 위치 전송
+4. 도달 후 Position(cnt) 재읽기 → delta ≈ 3640 확인
+5. 각도기로 물리 5° 교차 확인
+
+가설 판별:
+- delta ≈ 3,640 → 262,144 cnt/rev 확정 (가설 A, gear_ratio 무관)
+- delta ≈ 91,932 → gear_ratio × 65,536 cnt/rev (가설 B, gear_ratio 의존)
+- 두 값은 25.25배 차이 → 구분 용이
+
+스크립트: `experiments/axis-19/verify_262144.py`
+
 ## 미검증 모터 (다음 실험 대상)
 
 | 모터 | CAN ID | Gear Ratio | 예측 비율 | 상태 |

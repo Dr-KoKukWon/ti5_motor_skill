@@ -77,6 +77,7 @@ def can_device():
 | can_move_zero.py | Move to home position | **YES** |
 | can_full_test.py | 6-step integration test | Optional |
 | hil_encoder_x4_test.py | Encoder ×4 PPR verification | **YES** |
+| verify_262144.py | Encoder scale verification (262,144 cnt/rev) | **YES** |
 
 ## Reporting Rules
 
