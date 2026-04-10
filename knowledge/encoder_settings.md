@@ -7,12 +7,22 @@
 | **Position register** (cmd 8/30) | **262,144** (= 4 × 65536 = 2^18) | **728.2** | CAN position command/feedback |
 | **Out position** | gear_ratio × 65536 | 22,027 (ratio=121) / 18,386 (ratio=101) | Motor Controls UI, degrees_to_counts() |
 
-**Ratio**: Out position / Position = **gear_ratio / 4** (shoulder 121 → 30.25×, elbow/wrist 101 → 25.25×)
+**Ratio (HIL confirmed, R²=0.999995)**:
+
+```
+Out position / Position = gear_ratio / 4
+```
+
+- Shoulder (ratio 121): 121/4 = **30.25×** (실측 평균 30.37, 이론 대비 0.4%)
+- Elbow/Wrist (ratio 101): 101/4 = **25.25×** (예측값, HIL 미검증)
+
+Note: 262,144 cnt/rev 값과 비율 공식은 HIL 실측으로 확정됨.
+"4"의 물리적 메커니즘(quadrature vs 18비트 앱솔루트 엔코더)만 데이터시트 미확보로 미확인.
 
 ## Correct CAN Position Conversion
 
 ```python
-POSITION_CNT_PER_REV = 4 * 65536  # 262,144
+POSITION_CNT_PER_REV = 262144  # HIL verified, 출력축 1회전
 
 # degrees → Position register counts (for cmd 30)
 counts = int(degrees / 360.0 * POSITION_CNT_PER_REV)
