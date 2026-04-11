@@ -1,3 +1,15 @@
+## 관련 스크립트 — 기존 도구를 먼저 사용할 것
+
+| 작업 | 명령어 |
+|------|--------|
+| 엔코더 262,144 검증 (HIL) | `python3 experiments/axis-19/verify_262144.py --motor-id <ID>` |
+| 5도 이동 검증 (HIL) | `python3 experiments/axis-16/move_5deg.py` |
+| 엔코더 x4 판별 (HIL) | `python3 scripts/CAN_Test/hil_encoder_x4_test.py <CAN_ID>` |
+| 엔코더 x4 SIL 검증 | `cd scripts/Single_Motor_Test_py && PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest test_L1_encoder_x4_verify.py -v` |
+| 단위 변환 모듈 (import) | `from single_motor_logic import degrees_to_counts, counts_to_degrees, ENCODER_PPR` |
+
+---
+
 # TI5 Encoder Settings
 
 ## Two Scales Coexist (ISSUE-017, HIL verified 2026-04-10)

@@ -1,3 +1,21 @@
+## 검증 스크립트 (바로 실행)
+
+```bash
+# 기어비 101 모터 Position 262,144 검증
+python3 experiments/axis-19/verify_262144.py --motor-id 19
+
+# 다른 모터 (CH1 오른팔)
+python3 experiments/axis-19/verify_262144.py --motor-id 26 --can-index 1
+
+# 기어비 121 모터 5도 이동 검증 (기존)
+python3 experiments/axis-16/move_5deg.py --wait
+
+# 엔코더 x4 분해능 판별
+python3 scripts/CAN_Test/hil_encoder_x4_test.py 19
+```
+
+---
+
 # Encoder Ratio Verification — 실험 방법
 
 ## 목적

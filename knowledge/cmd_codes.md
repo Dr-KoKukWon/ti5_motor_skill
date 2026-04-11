@@ -1,3 +1,14 @@
+## CMD 사용 스크립트
+
+| CMD 그룹 | 스크립트 |
+|----------|---------|
+| 전체 레지스터 읽기 (cmd 3-101) | `scripts/CAN_Test/can_read_info.py <CAN_ID>` |
+| 스캔 (cmd 10) | `scripts/CAN_Test/can_scan.py` |
+| 위치 제어 (cmd 30/31) | `scripts/CAN_Test/motor_home.py`, `experiments/axis-16/move_5deg.py` |
+| CAN 래퍼 (모든 cmd) | `scripts/CAN_Test/ti5_can.py` — `can.send_command(id, cmd, param)` |
+
+---
+
 # TI5 CAN Command Code Reference
 
 ## Core Commands

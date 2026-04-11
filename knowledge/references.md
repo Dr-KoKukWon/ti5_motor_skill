@@ -1,3 +1,15 @@
+## 프로젝트 내 주요 파일 위치
+
+| 리소스 | 경로 |
+|--------|------|
+| CAN 통신 래퍼 | `scripts/CAN_Test/ti5_can.py` |
+| 모터/관절 스펙 | `scripts/Single_Motor_Test_py/single_motor_logic.py` |
+| CAN 드라이버 (.so) | `scripts/CAN_Test/libcontrolcan.so` |
+| 프로젝트 문서 | `docs/` (이슈: `docs/issues_and_fixes/`) |
+| 원점 설정 파일 | `config/motor_home_position.yaml` |
+
+---
+
 # TI5 External References
 
 ## Official Links

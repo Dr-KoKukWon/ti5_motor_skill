@@ -1,3 +1,27 @@
+## 테스트 실행 명령어 (복사해서 바로 실행)
+
+### SIL (하드웨어 불필요)
+```bash
+# L0 CAN 로직
+cd scripts/CAN_Test/tests && PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest test_L0_phase0_can.py -v
+
+# L1 단일 모터
+cd scripts/Single_Motor_Test_py && PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -v
+
+# L2 멀티 모터
+cd scripts/Multi_Motor_Test_py && PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -v
+```
+
+### HIL (USB-CAN + 모터 전원 필요)
+```bash
+python3 scripts/CAN_Test/can_scan.py              # 모터 스캔
+python3 scripts/CAN_Test/can_read_info.py <ID>     # 레지스터 읽기
+python3 scripts/CAN_Test/can_full_test.py <ID> --gear-ratio 101  # 통합 테스트
+python3 scripts/CAN_Test/motor_home.py save --id <ID>  # 원점 설정
+```
+
+---
+
 # TI5 SIL / HIL Testing Methods
 
 ## Test Hierarchy

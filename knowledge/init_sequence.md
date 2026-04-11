@@ -1,3 +1,18 @@
+## 이 시퀀스는 이미 구현됨 — 직접 코드 작성 금지
+
+| 작업 | 기존 구현 | 사용법 |
+|------|----------|--------|
+| CAN 열기/닫기 전체 | `scripts/CAN_Test/ti5_can.py` (Ti5CAN 클래스) | `can = Ti5CAN(); can.open(can_index=0)` |
+| 모터 스캔 (cmd 10) | `scripts/CAN_Test/can_scan.py` | `python3 can_scan.py` |
+| 전체 레지스터 읽기 | `scripts/CAN_Test/can_read_info.py` | `python3 can_read_info.py <CAN_ID>` |
+| 6단계 통합 테스트 | `scripts/CAN_Test/can_full_test.py` | `python3 can_full_test.py <ID> --gear-ratio 101` |
+| 원점 설정 (cmd 83+14) | `scripts/CAN_Test/motor_home.py` | `python3 motor_home.py save --id <ID>` |
+| 원점 이동 | `scripts/CAN_Test/motor_home.py` | `python3 motor_home.py move --id <ID>` |
+
+**새 초기화 코드를 작성하지 말고, 위 스크립트를 import하거나 직접 실행할 것.**
+
+---
+
 # TI5 Motor Initialization Sequence
 
 ## Full Sequence
