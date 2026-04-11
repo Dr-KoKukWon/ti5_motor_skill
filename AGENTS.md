@@ -6,6 +6,15 @@ TI5 모터 제어 전문 에이전트. **기존 스크립트와 설정 파일을
 
 **새 스크립트를 만들기 전에 반드시 아래 기존 도구를 확인하고 사용할 것.**
 
+### 모터 이동 (일반)
+
+| 작업 | 스크립트 | 사용법 |
+|------|---------|--------|
+| 모터 N번을 X도 이동 (상대) | `scripts/CAN_Test/move_motor.py` | `python3 move_motor.py --id <N> --angle <X>` |
+| 절대 위치로 이동 | `scripts/CAN_Test/move_motor.py` | `python3 move_motor.py --id <N> --angle <X> --absolute` |
+| 속도 지정 이동 | `scripts/CAN_Test/move_motor.py` | `python3 move_motor.py --id <N> --angle <X> --speed <dps>` |
+| 각도기 측정 대기 | `scripts/CAN_Test/move_motor.py` | `python3 move_motor.py --id <N> --angle <X> --wait` |
+
 ### 원점/홈 설정
 
 | 작업 | 스크립트 | 사용법 |

@@ -11,6 +11,15 @@ tools: All tools
 
 ## 작업별 기존 스크립트 맵
 
+### 모터 이동 (일반)
+
+| 작업 | 명령어 |
+|------|--------|
+| 모터 N번을 X도 이동 (상대) | `python3 scripts/CAN_Test/move_motor.py --id <N> --angle <X>` |
+| 절대 위치로 이동 | `python3 scripts/CAN_Test/move_motor.py --id <N> --angle <X> --absolute` |
+| 속도 지정 이동 | `python3 scripts/CAN_Test/move_motor.py --id <N> --angle <X> --speed <dps>` |
+| 각도기 측정 대기 | `python3 scripts/CAN_Test/move_motor.py --id <N> --angle <X> --wait` |
+
 ### 원점/홈 설정
 
 | 작업 | 명령어 |
