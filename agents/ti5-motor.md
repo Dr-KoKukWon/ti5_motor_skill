@@ -36,8 +36,9 @@ CAN Open → Status(10) → Fault Clear(11) → Enable(1) → Vel Limit(36/37) �
 - Position: ±716° (±12.5 rad)
 - Speed: ±1031°/s (±18 rad/s)  
 - Current: ±40,000 mA
-- EEPROM: cmd 14 required to persist RAM changes
+- EEPROM: cmd 14 required to persist ALL RAM changes (cmd 46 포함, 자동 저장 없음)
 - cmd 46 (ID change): FORBIDDEN without user confirmation
+- ISSUE-018: cmd 83 + cmd 14 시 CAN ID 오염 위험
 
 ### Testing
 

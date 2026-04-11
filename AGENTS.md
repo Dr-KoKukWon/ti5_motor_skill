@@ -59,7 +59,13 @@ User Code → Ti5BASIC.h → libmylibti5_multi_motor.so (135KB) → libcontrolca
 - CMD codes: docs/04-cmd-code-reference.md (101 codes documented)
 - Motor control modes: docs/06-motor-control-analysis.md
 - SDK comparison: docs/sdk-comparison-libmylibti5-vs-multi_motor.md
-- All 17 tracked issues: docs/issues_and_fixes/
+- All tracked issues: docs/issues_and_fixes/
+
+## EEPROM Rules (2026-04-11 실측 확정)
+
+- **모든 RAM 변경은 cmd 14 필수** — 예외 없음 (cmd 46 포함)
+- cmd 46 단독: 전원 재투입 시 원래 ID로 복귀 (자동 저장 안 됨)
+- ISSUE-018: cmd 83(offset) + cmd 14 → CAN ID 오염 가능
 
 ## Forbidden Actions
 

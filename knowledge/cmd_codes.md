@@ -53,6 +53,10 @@
 
 ## EEPROM Save Warning
 
-- RAM changes require cmd 14 to persist to EEPROM
-- Only cmd 46 (ID change) auto-saves
+- RAM changes require cmd 14 to persist to EEPROM — **예외 없음**
+- **cmd 46 (CAN ID 변경)도 cmd 14 필요** — 자동 저장 안 됨 (2026-04-11 실측)
+  - cmd 46 단독: 전원 재투입 시 원래 ID로 복귀
+  - cmd 46 + cmd 14: 전원 재투입 후에도 유지됨
 - **cmd 46 FORBIDDEN** without explicit user confirmation (can brick motor)
+- **ISSUE-018**: cmd 83(offset) + cmd 14 → CAN ID 오염 가능 (RAM 전체 EEPROM 기록)
+  - 복구 순서: cmd 83 offset=0 → cmd 14 → cmd 46 ID=원래값 → cmd 14
